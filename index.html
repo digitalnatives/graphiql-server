@@ -1,0 +1,20 @@
+<html>
+<head>
+  <title>GraphiQL Server</title>
+</head>
+<body>
+  <h1>Try to log in</h1>
+  <a href="/auth">Log in</a>
+  <button id="send-query-btn">Send GraphQL Query</button>
+  <script>
+    document.getElementById('send-query-btn')
+      .addEventListener('click', sendQuery)
+
+    function sendQuery() {
+      fetch('/proxy/graphql')
+        .then(response => response.text())
+        .then(console.log)
+    }
+  </script>
+</body>
+</html>

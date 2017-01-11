@@ -5,6 +5,11 @@
   "author": "Muriel Silveira <murielkong@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.14.0"
+    "es6-promise": "^4.0.5",
+    "eslint": "^3.13.1",
+    "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
+    "passport": "^0.3.2",
+    "passport-oauth2": "^1.4.0"
   }
 }
