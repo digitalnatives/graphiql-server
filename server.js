@@ -19,9 +19,9 @@ passport.use(new Strategy(
   config.OAuth2StrategyConfig,
   (accessToken, refreshToken, profile, done) => {
 
-    console.log('accessToken', accessToken) // eslint-disable-line
-    console.log('refreshToken', refreshToken) // eslint-disable-line
-    console.log('profile', profile) // eslint-disable-line
+    console.log('accessToken', accessToken)
+    console.log('refreshToken', refreshToken)
+    console.log('profile', profile)
 
     done(null, {})
   }
@@ -39,8 +39,6 @@ app.get('/auth/callback',
 /*
   PROXY
 */
-
-
 
 app.get('/proxy/graphql', function (req, res) {
   fetch(config.GRAPHQL.URL, {
