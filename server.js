@@ -73,12 +73,18 @@ app.get('/auth/callback',
 */
 
 app.get('/proxy/graphql', function (req, res) {
+  const passportSession = req.session.passport
+  if (!passportSession || !passportSession.user) {
+    res.status(401).send('You need to be logged in!')
+    return
+  }
+
   fetch(config.GRAPHQL.URL, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': config.GRAPHQL.TOKEN,
+      'Authorization': `Bearer ${passportSession.user.accessToken}`,
     },
     body: JSON.stringify({
       query: config.GRAPHQL.QUERY
