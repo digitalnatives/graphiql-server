@@ -11,7 +11,7 @@
       .addEventListener('click', sendQuery)
 
     function sendQuery() {
-      fetch('/proxy/graphql')
+      fetch('/proxy/graphql', {credentials: 'same-origin'})
         .then(response => response.text())
         .then(console.log)
     }
