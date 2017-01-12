@@ -38,23 +38,31 @@ function getSessionConfig() {
 
 app.use(session(getSessionConfig()))
 app.use(passport.initialize())
+app.use(passport.session())
+
+passport.serializeUser(function(user, done) {
+  done(null, user)
+})
+
+passport.deserializeUser(function(user, done) {
+  done(null, user)
+})
 
 passport.use(new Strategy(
   config.OAuth2StrategyConfig,
   (accessToken, refreshToken, profile, done) => {
-
-    console.log('accessToken', accessToken)
-    console.log('refreshToken', refreshToken)
-    console.log('profile', profile)
-
-    done(null, {})
+    const user = {
+      accessToken,
+      refreshToken,
+    }
+    done(null, user)
   }
 ))
 
-app.get('/auth', passport.authenticate('oauth2', {session: false}))
+app.get('/auth', passport.authenticate('oauth2'))
 
 app.get('/auth/callback',
-  passport.authenticate('oauth2', {session: false, failureRedirect: '/'}),
+  passport.authenticate('oauth2', {failureRedirect: '/'}),
   (req, res) => {
     res.redirect('/')
   }
