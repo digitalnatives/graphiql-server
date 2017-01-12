@@ -5,6 +5,7 @@
   "author": "Muriel Silveira <murielkong@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "connect-redis": "^3.2.0",
     "es6-promise": "^4.0.5",
     "eslint": "^3.13.1",
