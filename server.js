@@ -4,6 +4,8 @@ require('es6-promise').polyfill()
 require('isomorphic-fetch')
 const express = require('express')
 const app = express()
+const session = require('express-session')
+const RedisStore = require('connect-redis')(session)
 const path = require('path')
 const passport = require('passport')
 const Strategy = require('passport-oauth2').Strategy
@@ -13,6 +15,28 @@ const config = require('./config')
   AUTH
 */
 
+function getSessionConfig() {
+  let sessionInfo = {
+    store: new RedisStore({
+      host: 'localhost',
+      port: 6379,
+    }),
+    secret: 'some nice key',
+    resave: true,
+    saveUninitialized: true,
+  }
+
+  if (app.get('env') === 'production') {
+    app.set('trust proxy', 1)
+    sessionInfo.cookie = {
+      secure: true
+    }
+  }
+
+  return sessionInfo
+}
+
+app.use(session(getSessionConfig()))
 app.use(passport.initialize())
 
 passport.use(new Strategy(
