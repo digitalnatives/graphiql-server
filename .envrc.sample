@@ -1,0 +1,14 @@
+# https://direnv.net/
+
+export GS_SESSION_SECRET=
+
+export GS_REDIS_URL=
+export GS_REDIS_PORT=
+
+export GS_APP_URL=
+export GS_GRAPHQL_URL=
+
+export GS_OAUTH_AUTORIZATION_URL=
+export GS_OAUTH_TOKEN_URL=
+export GS_OAUTH_CLIENT_ID=
+export GS_OAUTH_CLIENT_SECRET=

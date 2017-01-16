@@ -12,7 +12,7 @@ const OAUTH_AUTORIZATION_URL = process.env.GS_OAUTH_AUTORIZATION_URL || ''
 const OAUTH_TOKEN_URL = process.env.GS_OAUTH_TOKEN_URL || ''
 const OAUTH_CLIENT_ID = process.env.GS_OAUTH_CLIENT_ID || ''
 const OAUTH_CLIENT_SECRET = process.env.GS_OAUTH_CLIENT_SECRET || ''
-const OAUTH_CALLBACK_URL = process.env.GS_OAUTH_CALLBACK_URL || `${APP_URL}/auth/callback`
+const OAUTH_CALLBACK_URL = `${APP_URL}/auth/callback`
 
 module.exports = {
   SESSION_SECRET,
