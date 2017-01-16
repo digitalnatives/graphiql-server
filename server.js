@@ -20,10 +20,10 @@ const config = require('./config')
 function getSessionConfig() {
   let sessionInfo = {
     store: new RedisStore({
-      host: 'localhost',
-      port: 6379,
+      host: config.REDIS_URL,
+      port: config.REDIS_PORT,
     }),
-    secret: 'some nice key',
+    secret: config.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
   }
@@ -52,7 +52,13 @@ passport.deserializeUser(function(user, done) {
 })
 
 passport.use(new Strategy(
-  config.OAuth2StrategyConfig,
+  {
+    authorizationURL: config.OAUTH_AUTORIZATION_URL,
+    tokenURL: config.OAUTH_TOKEN_URL,
+    clientID: config.OAUTH_CLIENT_ID,
+    clientSecret: config.OAUTH_CLIENT_SECRET,
+    callbackURL: config.OAUTH_CALLBACK_URL,
+  },
   (accessToken, refreshToken, profile, done) => {
     const user = {
       accessToken,
