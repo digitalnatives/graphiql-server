@@ -2,7 +2,7 @@
 
 const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
 
-const REDIS_SOCKET = process.env.REDISCLOUD_URL || 'redis://localhost:6379'
+const REDIS_SOCKET = process.env.GS_REDIS_SOCKET || process.env.REDISCLOUD_URL || 'redis://localhost:6379'
 
 const APP_PORT = process.env.PORT || 5000
 const APP_URL = process.env.GS_APP_URL || `http://localhost:${APP_PORT}`
