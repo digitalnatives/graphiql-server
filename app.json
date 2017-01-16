@@ -1,0 +1,46 @@
+{
+  "name": "GraphiQL Server",
+  "description": "A simple server to handle authentication and render a GraphiQL plaground",
+  "image": "heroku/nodejs",
+  "addons": [
+    "rediscloud"
+  ],
+  "env": {
+    "GS_SESSION_SECRET": {
+      "description": "",
+      "value": ""
+    },
+    "GS_REDIS_URL": {
+      "description": "",
+      "value": ""
+    },
+    "GS_REDIS_PORT": {
+      "description": "",
+      "value": ""
+    },
+    "GS_APP_URL": {
+      "description": "",
+      "value": ""
+    },
+    "GS_GRAPHQL_URL": {
+      "description": "",
+      "value": ""
+    },
+    "GS_OAUTH_AUTORIZATION_URL": {
+      "description": "",
+      "value": ""
+    },
+    "GS_OAUTH_TOKEN_URL": {
+      "description": "",
+      "value": ""
+    },
+    "GS_OAUTH_CLIENT_ID": {
+      "description": "",
+      "value": ""
+    },
+    "GS_OAUTH_CLIENT_SECRET": {
+      "description": "",
+      "value": ""
+    }
+  }
+}
