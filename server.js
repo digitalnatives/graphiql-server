@@ -20,8 +20,7 @@ const config = require('./config')
 function getSessionConfig() {
   let sessionInfo = {
     store: new RedisStore({
-      host: config.REDIS_URL,
-      port: config.REDIS_PORT,
+      socket: config.REDIS_SOCKET,
     }),
     secret: config.SESSION_SECRET,
     resave: true,

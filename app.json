@@ -10,11 +10,7 @@
       "description": "",
       "value": ""
     },
-    "GS_REDIS_URL": {
-      "description": "",
-      "value": ""
-    },
-    "GS_REDIS_PORT": {
+    "GS_REDIS_SOCKET": {
       "description": "",
       "value": ""
     },

@@ -2,8 +2,7 @@
 
 export GS_SESSION_SECRET=
 
-export GS_REDIS_URL=
-export GS_REDIS_PORT=
+export GS_REDIS_SOCKET=
 
 export GS_APP_URL=
 export GS_GRAPHQL_URL=
