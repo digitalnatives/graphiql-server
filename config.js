@@ -1,30 +1,19 @@
-const APP_URL = ''
+const APP_URL = 'http://localhost:4000'
 const OAUTH_URL = ''
 const OAUTH_ID = ''
 const OAUTH_SECRET = ''
+
 const OAuth2StrategyConfig = {
   authorizationURL: `${OAUTH_URL}/oauth/authorize`,
   tokenURL: `${OAUTH_URL}/oauth/token`,
   clientID: OAUTH_ID,
   clientSecret: OAUTH_SECRET,
-  callbackURL: `${APP_URL}/callback`
+  callbackURL: `${APP_URL}/auth/callback`
 }
 
-const GRAPHQL = {
-  URL: '',
-  QUERY: `{
-
-  }`,
-  TOKEN: ''
-}
+const GRAPHQL_URL = ''
 
 module.exports = {
-  APP_URL,
-  OAUTH_URL,
-  OAUTH_ID,
-  OAUTH_SECRET,
   OAuth2StrategyConfig,
-  GRAPHQL,
+  GRAPHQL_URL,
 }
-
-

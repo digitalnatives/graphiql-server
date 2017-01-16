@@ -22,6 +22,26 @@
     .field-container span {
       margin-right: 10px;
     }
+
+    .signed-in a.log-in-button {
+      display: none;
+    }
+
+    .signed-out a.log-out-button {
+      display: none;
+    }
+
+    #graphiql.signed-out::after {
+      position: absolute;
+      top: 48px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 99;
+      content: " ";
+      background: #ddd;
+      opacity: .5;
+    }
   </style>
 
   <script src="https://cdn.jsdelivr.net/es6-promise/4.0.5/es6-promise.auto.min.js"></script>
@@ -33,7 +53,7 @@
   <script src="/static/graphiql.v0.8.1.min.js"></script>
 </head>
 <body>
-  <div id="graphiql">Loading...</div>
+  <div id="graphiql" class="{{signedOutClass}}">Loading...</div>
   <script>
     var parameters = parseSearchStringToParameters()
 
@@ -120,7 +140,15 @@
           onEditQuery: onEditQuery,
           onEditVariables: onEditVariables,
           onEditOperationName: onEditOperationName,
-        }
+        },
+        React.createElement(
+          GraphiQL.Toolbar,
+          null,
+          React.createElement('div', null, [
+            React.createElement('a', { className: 'toolbar-button log-in-button', href: '/auth/log-in' }, 'Log in'),
+            React.createElement('a', { className: 'toolbar-button log-out-button', href: '/auth/log-out' }, 'Log out')
+          ])
+        )
       ),
       document.getElementById('graphiql')
     )

@@ -10,6 +10,7 @@ const path = require('path')
 const passport = require('passport')
 const Strategy = require('passport-oauth2').Strategy
 const bodyParser = require('body-parser')
+const fs = require('fs')
 const config = require('./config')
 
 /*
@@ -61,7 +62,7 @@ passport.use(new Strategy(
   }
 ))
 
-app.get('/auth', passport.authenticate('oauth2'))
+app.get('/auth/log-in', passport.authenticate('oauth2'))
 
 app.get('/auth/callback',
   passport.authenticate('oauth2', {failureRedirect: '/'}),
@@ -70,25 +71,39 @@ app.get('/auth/callback',
   }
 )
 
+app.get('/auth/log-out', function(req, res) {
+  if (isUserLoggedIn(req)) {
+    req.session.destroy()
+  }
+  res.redirect('/')
+})
+
+function isUserLoggedIn(req) {
+  const passportSession = req.session.passport
+  return passportSession && passportSession.user
+}
+
 /*
   PROXY
 */
 
 app.post('/proxy/graphql', function (req, res) {
-  const passportSession = req.session.passport
-  if (!passportSession || !passportSession.user) {
+  if (!isUserLoggedIn(req)) {
     res.status(401).send('You need to be logged in!')
     return
   }
 
-  fetch(config.GRAPHQL.URL, {
+  const token = `Bearer ${req.session.passport.user.accessToken}`
+  const query = JSON.stringify(req.body)
+
+  fetch(config.GRAPHQL_URL, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${passportSession.user.accessToken}`,
+      'Authorization': token,
     },
-    body: JSON.stringify(req.body),
+    body: query,
   }).then(function (response) {
     return response.text()
   }).then(function (responseBody) {
@@ -106,8 +121,20 @@ app.post('/proxy/graphql', function (req, res) {
 
 app.use('/static', express.static('static'))
 
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, '/index.html'))
+app.get('/', function (req, res) {
+  fs.readFile(path.join(__dirname, '/index.html'), function (err, content) {
+    if (err)
+      return res.send(err)
+
+    content = content.toString()
+      .replace('{{signedOutClass}}', isUserLoggedIn(req) ? 'signed-in' : 'signed-out')
+
+    return res.send(content)
+  })
+})
+
+app.use(function(req, res) {
+  res.status(404).send('Page not found!')
 })
 
 app.listen(4000, function () {
