@@ -1,17 +1,18 @@
-const SESSION_SECRET = 'some nice key'
+/* eslint-env node */
 
-const REDIS_URL = 'localhost'
-const REDIS_PORT = '6379'
+const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
 
-const APP_URL = 'http://localhost:4000'
-const GRAPHQL_URL = ''
+const REDIS_URL = process.env.GS_REDIS_URL || 'localhost'
+const REDIS_PORT = process.env.GS_REDIS_PORT || '6379'
 
-const OAUTH_BASE_URL = ''
-const OAUTH_AUTORIZATION_URL = `${OAUTH_BASE_URL}/oauth/authorize`
-const OAUTH_TOKEN_URL = `${OAUTH_BASE_URL}/oauth/token`
-const OAUTH_CLIENT_ID = ''
-const OAUTH_CLIENT_SECRET = ''
-const OAUTH_CALLBACK_URL = `${APP_URL}/auth/callback`
+const APP_URL = process.env.GS_APP_URL || 'http://localhost:4000'
+const GRAPHQL_URL = process.env.GS_GRAPHQL_URL || ''
+
+const OAUTH_AUTORIZATION_URL = process.env.GS_OAUTH_AUTORIZATION_URL || ''
+const OAUTH_TOKEN_URL = process.env.GS_OAUTH_TOKEN_URL || ''
+const OAUTH_CLIENT_ID = process.env.GS_OAUTH_CLIENT_ID || ''
+const OAUTH_CLIENT_SECRET = process.env.GS_OAUTH_CLIENT_SECRET || ''
+const OAUTH_CALLBACK_URL = process.env.GS_OAUTH_CALLBACK_URL || `${APP_URL}/auth/callback`
 
 module.exports = {
   SESSION_SECRET,
