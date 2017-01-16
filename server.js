@@ -143,6 +143,6 @@ app.use(function(req, res) {
   res.status(404).send('Page not found!')
 })
 
-app.listen(4000, function () {
-  console.log('Example app listening on port 4000!')
+app.listen(config.APP_PORT, function () {
+  console.log(`Example app listening on port ${config.APP_PORT}!`)
 })

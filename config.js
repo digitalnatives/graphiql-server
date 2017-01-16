@@ -5,7 +5,8 @@ const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
 const REDIS_URL = process.env.GS_REDIS_URL || 'localhost'
 const REDIS_PORT = process.env.GS_REDIS_PORT || '6379'
 
-const APP_URL = process.env.GS_APP_URL || 'http://localhost:4000'
+const APP_PORT = process.env.PORT || 5000
+const APP_URL = process.env.GS_APP_URL || `http://localhost:${APP_PORT}`
 const GRAPHQL_URL = process.env.GS_GRAPHQL_URL || ''
 
 const OAUTH_AUTORIZATION_URL = process.env.GS_OAUTH_AUTORIZATION_URL || ''
@@ -18,6 +19,7 @@ module.exports = {
   SESSION_SECRET,
   REDIS_URL,
   REDIS_PORT,
+  APP_PORT,
   GRAPHQL_URL,
   OAUTH_AUTORIZATION_URL,
   OAUTH_TOKEN_URL,
