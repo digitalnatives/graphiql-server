@@ -6,10 +6,10 @@ const APP_PORT = process.env.PORT || 5000
 const APP_URL = process.env.GS_APP_URL || `http://localhost:${APP_PORT}`
 const GRAPHQL_URL = process.env.GS_GRAPHQL_URL || ''
 
-const OAUTH_AUTORIZATION_URL = process.env.GS_OAUTH_AUTORIZATION_URL || ''
-const OAUTH_TOKEN_URL = process.env.GS_OAUTH_TOKEN_URL || ''
-const OAUTH_CLIENT_ID = process.env.GS_OAUTH_CLIENT_ID || ''
-const OAUTH_CLIENT_SECRET = process.env.GS_OAUTH_CLIENT_SECRET || ''
+const OAUTH_AUTORIZATION_URL = process.env.GS_OAUTH_AUTORIZATION_URL || '/some-url'
+const OAUTH_TOKEN_URL = process.env.GS_OAUTH_TOKEN_URL || '/some-url'
+const OAUTH_CLIENT_ID = process.env.GS_OAUTH_CLIENT_ID || 'a-token'
+const OAUTH_CLIENT_SECRET = process.env.GS_OAUTH_CLIENT_SECRET || 'a-token'
 const OAUTH_CALLBACK_URL = `${APP_URL}/auth/callback`
 
 module.exports = {
