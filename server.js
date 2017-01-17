@@ -168,3 +168,6 @@ app.use(function(req, res) {
 app.listen(config.APP_PORT, function () {
   console.log(`Example app listening on port ${config.APP_PORT}!`)
 })
+
+// required to use the server on the tests
+module.exports = app

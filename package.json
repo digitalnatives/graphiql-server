@@ -4,17 +4,23 @@
   "main": "server.js",
   "author": "Muriel Silveira <murielkong@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha ./tests/**/*.test.js"
+  },
   "engines": {
     "node": "6.8.1"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "connect-redis": "^3.2.0",
     "es6-promise": "^4.0.5",
     "eslint": "^3.13.1",
     "express": "^4.14.0",
     "express-session": "^1.14.2",
     "isomorphic-fetch": "^2.2.1",
+    "mocha": "^3.2.0",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.4.0"
   }
