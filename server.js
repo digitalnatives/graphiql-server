@@ -8,7 +8,7 @@ const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 const path = require('path')
 const passport = require('passport')
-const Strategy = require('passport-oauth2').Strategy
+const OAuth2Strategy = require('passport-oauth2').Strategy
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const config = require('./config')
@@ -50,7 +50,7 @@ passport.deserializeUser(function(user, done) {
   done(null, user)
 })
 
-passport.use(new Strategy(
+const oauth2Strategy = new OAuth2Strategy(
   {
     authorizationURL: config.OAUTH_AUTORIZATION_URL,
     tokenURL: config.OAUTH_TOKEN_URL,
@@ -65,7 +65,9 @@ passport.use(new Strategy(
     }
     done(null, user)
   }
-))
+)
+
+passport.use(oauth2Strategy)
 
 app.get('/auth/log-in', passport.authenticate('oauth2'))
 
@@ -81,6 +83,28 @@ app.get('/auth/log-out', function(req, res) {
     req.session.destroy()
   }
   res.redirect('/')
+})
+
+app.get('/auth/refresh-token', function(req, res) {
+  if (!isUserLoggedIn(req)) {
+    res.redirect('/auth/log-in')
+    return
+  }
+
+  oauth2Strategy._oauth2.getOAuthAccessToken(
+    req.session.passport.user.refreshToken,
+    { grant_type: 'refresh_token' },
+    function(error, accessToken, refreshToken) {
+      if (error) {
+        res.redirect('/auth/log-out')
+        return
+      }
+
+      req.session.passport.user.accessToken = accessToken
+      req.session.passport.user.refreshToken = refreshToken
+      res.redirect('/')
+    }
+  )
 })
 
 function isUserLoggedIn(req) {
@@ -110,13 +134,15 @@ app.post('/proxy/graphql', function (req, res) {
     },
     body: query,
   }).then(function (response) {
-    return response.text()
-  }).then(function (responseBody) {
-    try {
-      res.send(JSON.parse(responseBody))
-    } catch (error) {
-      res.send(error)
+    const isUnauthorized = response.status === 401
+    if (isUnauthorized && isUserLoggedIn(req)) {
+      res.redirect('/auth/refresh-token')
+      return
     }
+
+    response.json()
+      .then(jsonBody =>  res.send(jsonBody))
+      .catch(error => res.send(error))
   })
 })
 
