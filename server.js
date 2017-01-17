@@ -1,4 +1,3 @@
-/* eslint-env node */
 /* eslint-disable no-console */
 require('es6-promise').polyfill()
 require('isomorphic-fetch')

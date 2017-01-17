@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
 
 const REDIS_SOCKET = process.env.GS_REDIS_SOCKET || process.env.REDISCLOUD_URL || 'redis://localhost:6379'
