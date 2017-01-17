@@ -150,8 +150,6 @@ app.post('/proxy/graphql', function (req, res) {
   INDEX
 */
 
-app.use('/static', express.static('static'))
-
 app.get('/', function (req, res) {
   fs.readFile(path.join(__dirname, '/index.html'), function (err, content) {
     if (err)
