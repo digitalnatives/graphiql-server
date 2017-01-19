@@ -23,4 +23,14 @@ describe('Black box tests', () => {
         done()
       })
   })
+
+  it('POST /proxy/graphql should return status code 401 when there is no logged user', (done) => {
+    chai.request(server)
+      .post('/proxy/graphql')
+      .end((err, res) => {
+        expect(res.status).to.eq(401)
+        expect(res.text).to.eq('You need to be logged in!')
+        done()
+      })
+  })
 })
