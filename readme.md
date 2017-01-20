@@ -16,11 +16,11 @@ Just press the button above and fill in the following environment variables:
 
 __GS_APP_URL__: `<heroku-app-name>`.herokuapp.com
 
-The `<heroku-app-name>` is the name that you choosed for your app on Heroku.
+The `<heroku-app-name>` is the name that you choose for your app on Heroku.
 
-This Url will be used as base for the callback Url on the OAuth2 auth flow.
+This will be the base Url for the callback on the OAuth2 auth flow.
 
-If you'll use your on domain after the deploy, you need to change this variable on the app settings tab.
+If you want to use your own domain, you can add it here or change it latter on app settings tab.
 
 __GS_SESSION_SECRET__: This is the secret used to sign the session ID cookie, used by [express-session](https://github.com/expressjs/session/#secret).
 
@@ -37,8 +37,8 @@ __GS_OAUTH2_CLIENT_SECRET__: Your OAuth2 client secret.
 
 ## Features
 
-- Supports only OAuth2 authentication flow now, in a simple way. (We need your help to make it better and add more :)
-- Proxy all the GraphQL API calls through the server, this way the tokens only live in the server side and it's possible to use API's without CORS enabled.
+- Supports only OAuth2 authentication flow now. (We need your help to make it better and add more :)
+- Proxy all the GraphQL API calls through the server, this way the tokens only live on the server side and it's possible to use API's without CORS enabled.
 
 
 ## To do's
