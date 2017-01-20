@@ -18,19 +18,19 @@
       "description": "",
       "value": ""
     },
-    "GS_OAUTH_AUTORIZATION_URL": {
+    "GS_OAUTH2_AUTORIZATION_URL": {
       "description": "",
       "value": ""
     },
-    "GS_OAUTH_TOKEN_URL": {
+    "GS_OAUTH2_TOKEN_URL": {
       "description": "",
       "value": ""
     },
-    "GS_OAUTH_CLIENT_ID": {
+    "GS_OAUTH2_CLIENT_ID": {
       "description": "",
       "value": ""
     },
-    "GS_OAUTH_CLIENT_SECRET": {
+    "GS_OAUTH2_CLIENT_SECRET": {
       "description": "",
       "value": ""
     }

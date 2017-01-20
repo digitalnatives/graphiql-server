@@ -51,11 +51,11 @@ passport.deserializeUser(function(user, done) {
 
 const oauth2Strategy = new OAuth2Strategy(
   {
-    authorizationURL: config.OAUTH_AUTORIZATION_URL,
-    tokenURL: config.OAUTH_TOKEN_URL,
-    clientID: config.OAUTH_CLIENT_ID,
-    clientSecret: config.OAUTH_CLIENT_SECRET,
-    callbackURL: config.OAUTH_CALLBACK_URL,
+    authorizationURL: config.OAUTH2_AUTORIZATION_URL,
+    tokenURL: config.OAUTH2_TOKEN_URL,
+    clientID: config.OAUTH2_CLIENT_ID,
+    clientSecret: config.OAUTH2_CLIENT_SECRET,
+    callbackURL: config.OAUTH2_CALLBACK_URL,
   },
   (accessToken, refreshToken, profile, done) => {
     const user = {
