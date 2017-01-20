@@ -1,37 +1,37 @@
 {
   "name": "GraphiQL Server",
-  "description": "A simple server to handle authentication and render a GraphiQL plaground",
+  "description": "A simple server to have a GraphiQL UI playground for your API, it handles authentication and proxies all API calls (avoiding CORS)",
   "image": "heroku/nodejs",
   "addons": [
     "rediscloud"
   ],
   "env": {
-    "GS_SESSION_SECRET": {
-      "description": "",
-      "value": ""
-    },
     "GS_APP_URL": {
-      "description": "",
+      "description": "The `<heroku-app-name>` is the name that you choosed for your app above.",
+      "value": "<heroku-app-name>.herokuapp.com"
+    },
+    "GS_SESSION_SECRET": {
+      "description": "This is the secret used to sign the session ID cookie",
       "value": ""
     },
     "GS_GRAPHQL_URL": {
-      "description": "",
+      "description": "Your GraphQL endpoint.",
       "value": ""
     },
     "GS_OAUTH2_AUTORIZATION_URL": {
-      "description": "",
+      "description": "Your OAuth2 autorization endpoint.",
       "value": ""
     },
     "GS_OAUTH2_TOKEN_URL": {
-      "description": "",
+      "description": "Your OAuth2 token endpoint.",
       "value": ""
     },
     "GS_OAUTH2_CLIENT_ID": {
-      "description": "",
+      "description": "Your OAuth2 client ID.",
       "value": ""
     },
     "GS_OAUTH2_CLIENT_SECRET": {
-      "description": "",
+      "description": "Your OAuth2 client secret.",
       "value": ""
     }
   }
