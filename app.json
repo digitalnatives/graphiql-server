@@ -8,7 +8,7 @@
   "env": {
     "GS_APP_URL": {
       "description": "The `<heroku-app-name>` is the name that you choosed for your app above.",
-      "value": "<heroku-app-name>.herokuapp.com"
+      "value": "https://<heroku-app-name>.herokuapp.com"
     },
     "GS_SESSION_SECRET": {
       "description": "This is the secret used to sign the session ID cookie",

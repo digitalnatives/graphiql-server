@@ -14,7 +14,7 @@ We make it easy to deploy as a free Heroku app.
 
 Just press the button above and fill in the following environment variables:
 
-__GS_APP_URL__: `<heroku-app-name>`.herokuapp.com
+__GS_APP_URL__: https://`<heroku-app-name>`.herokuapp.com
 
 The `<heroku-app-name>` is the name that you choose for your app on Heroku.
 
