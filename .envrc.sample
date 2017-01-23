@@ -1,12 +1,16 @@
 # https://direnv.net/
 
+# you can leave it empty when running locally
 export GS_SESSION_SECRET=
 
+# leave empty when redis is running on redis://localhost:6379
 export GS_REDIS_SOCKET=
 
+# you can leave it empty when the app is running on localhost
 export GS_APP_URL=
-export GS_GRAPHQL_URL=
 
+# the variables below are REQUIRED
+export GS_GRAPHQL_URL=
 export GS_OAUTH2_AUTORIZATION_URL=
 export GS_OAUTH2_TOKEN_URL=
 export GS_OAUTH2_CLIENT_ID=
