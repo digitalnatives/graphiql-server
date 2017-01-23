@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    command: npm start
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./:/usr/src/graphiql-server
+    depends_on:
+      - redis
+    environment:
+      - GS_SESSION_SECRET
+      - GS_REDIS_TCP_ADDR=redis
+      - GS_GRAPHQL_URL
+      - GS_OAUTH2_AUTORIZATION_URL
+      - GS_OAUTH2_TOKEN_URL
+      - GS_OAUTH2_CLIENT_ID
+      - GS_OAUTH2_CLIENT_SECRET
+    tty: true
+    stdin_open: true
+
+  redis:
+    container_name: redis
+    image: redis:3.0.7
