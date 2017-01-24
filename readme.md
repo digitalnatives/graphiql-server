@@ -35,6 +35,29 @@ __GS_OAUTH2_CLIENT_ID__: Your OAuth2 client ID.
 __GS_OAUTH2_CLIENT_SECRET__: Your OAuth2 client secret.
 
 
+## Running locally
+
+> For both methods you need to have the environment variables configured, see the `.envrc.sample` file for more info.
+
+### With Node
+
+Install [Node](https://nodejs.org) and run:
+
+```bash
+npm install
+npm start
+```
+
+### With Docker
+
+Install [Docker](https://www.docker.com/) and run:
+
+```bash
+docker-compose up app
+# the first time it can take some time depending on your internet connection
+```
+
+
 ## Features
 
 - Supports only OAuth2 authentication flow now. (We need your help to make it better and add more :)
