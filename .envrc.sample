@@ -1,4 +1,20 @@
-# https://direnv.net/
+#
+# These are the environment variables for this application.
+# You can use any method you like to handle then, but here are two suggestions:
+#
+# 1. Use direnv to manage your env vars, it's simple and easy to use,
+#    take a look on https://direnv.net/ for more info.
+#
+#    Simple steps to use it:
+#
+#      - follow the instructions on the website to install it
+#      - duplicate this file and rename it to .envrc
+#      - set the variables bellow
+#      - run `direnv allow` on the project root
+#
+# 2. Set the variables on one of your config files, eg.: .bashrc or .zshrc
+#
+
 
 # you can leave it empty when running locally
 export GS_SESSION_SECRET=
