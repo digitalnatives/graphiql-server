@@ -16,8 +16,18 @@
 #
 
 
+# the secret key used to encrypt your session,
 # you can leave it empty when running locally
 export GS_SESSION_SECRET=
+
+# choose where to store your session information,
+# now we have two options:
+#   - memory (default)
+#   - redis
+#
+# if you use Redis make sure that you configure
+# the proper GS_REDIS_URL bellow
+export GS_SESSION_STORE=
 
 # leave empty when redis is running on redis://localhost:6379/0
 export GS_REDIS_URL=

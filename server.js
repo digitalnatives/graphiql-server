@@ -18,12 +18,15 @@ const config = require('./config')
 
 function getSessionConfig() {
   let sessionInfo = {
-    store: new RedisStore({
-      socket: config.REDIS_SOCKET,
-    }),
     secret: config.SESSION_SECRET,
     resave: true,
     saveUninitialized: true,
+  }
+
+  if (config.SESSION_STORE === config.SessionStoreType.REDIS) {
+    sessionInfo.store = new RedisStore({
+      socket: config.REDIS_SOCKET,
+    })
   }
 
   if (app.get('env') === 'production') {

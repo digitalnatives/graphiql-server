@@ -1,4 +1,13 @@
+/*
+  Session Config
+*/
 const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
+
+const SessionStoreType = {
+  MEMORY: 'memory',
+  REDIS: 'redis',
+}
+const SESSION_STORE = process.env.GS_SESSION_STORE || SessionStoreType.MEMORY
 
 const REDIS_SOCKET = (() => {
   // used by docker-compose
@@ -14,6 +23,9 @@ const REDIS_SOCKET = (() => {
   return 'redis://localhost:6379/0'
 })()
 
+/*
+  GraphQL Config
+*/
 const APP_PORT = process.env.PORT || 5000
 const APP_URL = process.env.GS_APP_URL || `http://localhost:${APP_PORT}`
 const GRAPHQL_URL = process.env.GS_GRAPHQL_URL || ''
@@ -26,6 +38,8 @@ const OAUTH2_CALLBACK_URL = `${APP_URL}/auth/callback`
 
 module.exports = {
   SESSION_SECRET,
+  SessionStoreType,
+  SESSION_STORE,
   REDIS_SOCKET,
   APP_PORT,
   GRAPHQL_URL,
