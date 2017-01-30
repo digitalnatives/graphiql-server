@@ -1,16 +1,17 @@
 const SESSION_SECRET = process.env.GS_SESSION_SECRET || 'some nice key'
 
 const REDIS_SOCKET = (() => {
+  // used by docker-compose
   if (process.env.GS_REDIS_TCP_ADDR)
     return `redis://${process.env.GS_REDIS_TCP_ADDR}:6379`
 
-  if (process.env.GS_REDIS_SOCKET)
-    return process.env.GS_REDIS_SOCKET
+  if (process.env.GS_REDIS_URL)
+    return process.env.GS_REDIS_URL
 
   if (process.env.REDISCLOUD_URL)
     return process.env.REDISCLOUD_URL
 
-  return 'redis://localhost:6379'
+  return 'redis://localhost:6379/0'
 })()
 
 const APP_PORT = process.env.PORT || 5000
