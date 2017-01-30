@@ -7,7 +7,7 @@ const SessionStoreType = {
   MEMORY: 'memory',
   REDIS: 'redis',
 }
-const SESSION_STORE = process.env.GS_SESSION_STORE || SessionStoreType.MEMORY
+const SESSION_STORE = process.env.GS_SESSION_STORE || SessionStoreType.REDIS
 
 const REDIS_SOCKET = (() => {
   // used by docker-compose

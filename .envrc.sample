@@ -22,10 +22,10 @@ export GS_SESSION_SECRET=
 
 # choose where to store your session information,
 # now we have two options:
-#   - memory (default)
-#   - redis
+#   - redis (default)
+#   - memory
 #
-# if you use Redis make sure that you configure
+# when using Redis make sure to configure
 # the proper GS_REDIS_URL bellow
 export GS_SESSION_STORE=
 
