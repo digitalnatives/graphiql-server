@@ -12,6 +12,7 @@ services:
       - redis
     environment:
       - GS_SESSION_SECRET
+      - GS_SESSION_STORE=redis
       - GS_REDIS_TCP_ADDR=redis
       - GS_GRAPHQL_URL
       - GS_OAUTH2_AUTORIZATION_URL
