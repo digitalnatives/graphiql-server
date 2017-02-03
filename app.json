@@ -18,8 +18,8 @@
       "description": "Your GraphQL endpoint.",
       "value": ""
     },
-    "GS_OAUTH2_AUTORIZATION_URL": {
-      "description": "Your OAuth2 autorization endpoint.",
+    "GS_OAUTH2_AUTHORIZATION_URL": {
+      "description": "Your OAuth2 authorization endpoint.",
       "value": ""
     },
     "GS_OAUTH2_TOKEN_URL": {

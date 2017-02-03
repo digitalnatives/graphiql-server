@@ -26,7 +26,7 @@ __GS_SESSION_SECRET__: This is the secret used to sign the session ID cookie, us
 
 __GS_GRAPHQL_URL__: Your GraphQL endpoint.
 
-__GS_OAUTH2_AUTORIZATION_URL__: Your OAuth2 autorization endpoint.
+__GS_OAUTH2_AUTHORIZATION_URL__: Your OAuth2 authorization endpoint.
 
 __GS_OAUTH2_TOKEN_URL__: Your OAuth2 token endpoint.
 

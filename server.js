@@ -54,7 +54,7 @@ passport.deserializeUser(function(user, done) {
 
 const oauth2Strategy = new OAuth2Strategy(
   {
-    authorizationURL: config.OAUTH2_AUTORIZATION_URL,
+    authorizationURL: config.OAUTH2_AUTHORIZATION_URL,
     tokenURL: config.OAUTH2_TOKEN_URL,
     clientID: config.OAUTH2_CLIENT_ID,
     clientSecret: config.OAUTH2_CLIENT_SECRET,

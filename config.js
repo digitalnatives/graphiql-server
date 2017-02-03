@@ -30,7 +30,7 @@ const APP_PORT = process.env.PORT || 5000
 const APP_URL = process.env.GS_APP_URL || `http://localhost:${APP_PORT}`
 const GRAPHQL_URL = process.env.GS_GRAPHQL_URL || ''
 
-const OAUTH2_AUTORIZATION_URL = process.env.GS_OAUTH2_AUTORIZATION_URL || '/some-url'
+const OAUTH2_AUTHORIZATION_URL = process.env.GS_OAUTH2_AUTHORIZATION_URL || '/some-url'
 const OAUTH2_TOKEN_URL = process.env.GS_OAUTH2_TOKEN_URL || '/some-url'
 const OAUTH2_CLIENT_ID = process.env.GS_OAUTH2_CLIENT_ID || 'a-token'
 const OAUTH2_CLIENT_SECRET = process.env.GS_OAUTH2_CLIENT_SECRET || 'a-token'
@@ -43,7 +43,7 @@ module.exports = {
   REDIS_SOCKET,
   APP_PORT,
   GRAPHQL_URL,
-  OAUTH2_AUTORIZATION_URL,
+  OAUTH2_AUTHORIZATION_URL,
   OAUTH2_TOKEN_URL,
   OAUTH2_CLIENT_ID,
   OAUTH2_CLIENT_SECRET,
