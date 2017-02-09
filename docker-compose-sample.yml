@@ -6,8 +6,6 @@ services:
     command: npm start
     ports:
       - "5000:5000"
-    volumes:
-      - ./:/usr/src/graphiql-server
     depends_on:
       - redis
     environment:
